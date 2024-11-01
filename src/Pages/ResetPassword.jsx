@@ -8,7 +8,7 @@ const ResetPassword = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const { id, token } = useParams();
+  const { resetToken } = useParams();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
