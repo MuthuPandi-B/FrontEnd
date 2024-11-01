@@ -13,7 +13,7 @@ const ResetPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .post(`http://localhost:5000/api/auth/reset-password/${id}/${token}`, {
+      .post(`https://passwordreset.netlify.app/reset-password/${resetToken}`, {
         password,
       })
       .then((res) => {

@@ -14,7 +14,7 @@ const Login = ({setToken}) => {
     e.preventDefault();
     const payload = { email, password };
     await axios
-      .post("http://localhost:5000/api/auth/login", payload)
+      .post("https://backend-pmn1.onrender.com/api/auth/login", payload)
       .then((res) => {
         toast.success(res.data.message);
         setToken(res.data.token)
