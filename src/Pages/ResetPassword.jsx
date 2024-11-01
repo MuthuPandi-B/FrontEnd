@@ -13,7 +13,7 @@ const ResetPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .post(`https://passwordreset.netlify.app/reset-password/${resetToken}`, {
+      .post(`https://backend-pmn1.onrender.com/api/auth/reset-password/${resetToken}`, {
         password,
       })
       .then((res) => {
