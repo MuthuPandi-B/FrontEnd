@@ -45,8 +45,8 @@ const Login = () => {
           Login
         </button>
         <p className="text-center text-sm text-gray-500 mt-4">
-          Don’t have an account?{"/ "}
-          <a href="/register" className="text-indigo-500 hover:underline">Sign up</a>
+          Don’t have an account?{" "}
+          <a href="/" className="text-indigo-500 hover:underline">Sign up</a>
         </p>
         <p className="text-center text-sm text-gray-500 mt-2">
           Forgot your password?{" "}
