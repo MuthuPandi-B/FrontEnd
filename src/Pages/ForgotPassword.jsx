@@ -11,7 +11,7 @@ const ForgotPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/forgot-password", { email });
+      const res = await axios.post("https://backend-pmn1.onrender.com/api/auth/forgot-password", { email });
       toast.success(res.data.message);
       navigate("/login");
     } catch (error) {
