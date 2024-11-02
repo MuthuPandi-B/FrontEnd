@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -12,18 +12,17 @@ const ResetPassword = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios
-      .post(`https://backend-pmn1.onrender.com/api/auth/reset-password/${resetToken}`, {
+
+    try {
+      const response = await axios.post(`https://backend-pmn1.onrender.com/api/auth/reset-password/${resetToken}`, {
         password,
-      })
-      .then((res) => {
-        toast.success(res.data.message);
-        navigate("/login");
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error(error.response.data.message);
       });
+      toast.success(response.data.message);
+      navigate("/login");
+    } catch (error) {
+      console.error("Error during password reset:", error);
+      toast.error(error.response?.data?.message || "An error occurred");
+    }
   };
 
   return (
@@ -40,12 +39,12 @@ const ResetPassword = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <br></br>
+          <br />
           <button type="button" onClick={() => setShowPassword(!showPassword)}>
             {showPassword ? "Hide" : "Show"} password
           </button>
         </p>
-        <br></br>
+        <br />
         <button type="submit">Update Password</button>
       </form>
     </div>
