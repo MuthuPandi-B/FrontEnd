@@ -19,7 +19,7 @@ const ResetPassword = () => {
     }
 
     try {
-      const res = await axios.post(`https://backend-pmn1.onrender.com/api/auth/reset-password/${resetToken}`, { password });
+      const res = await axios.post(`http://localhost:5000/api/auth/reset-password/${resetToken}`, { password });
       toast.success(res.data.message);
       navigate("/login"); // Redirect to login page after successful reset
     } catch (error) {
